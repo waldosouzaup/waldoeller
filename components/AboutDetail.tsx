@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 
 interface AboutDetailProps {
@@ -9,6 +8,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const whatsappNumber = "5561991161854";
+  const whatsappMessage = encodeURIComponent("Olá Waldo, vi seu perfil detalhado no portfólio e gostaria de conversar sobre um projeto.");
 
   return (
     <div className="bg-[#0A0A0B] min-h-screen pt-32 pb-20">
@@ -108,24 +110,25 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
                   <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Pós-graduação Ciência de Dados
 </h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2025 - 2026</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
                   <p className="text-xl font-bold text-white mb-2 italic">GRAN Faculdade</p>
                   <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
                 </div>
                  <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
-                  <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Pós-graduação Ciência de Dados
+                  <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Pós-graduação Segurança da Informação
+
 </h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2025 - 2026</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
                   <p className="text-xl font-bold text-white mb-2 italic">GRAN Faculdade</p>
                   <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
                 </div>
                  <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
-                  <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Pós-graduação Ciência de Dados
+                  <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Pós-graduação Engenharia de Dados
 </h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2025 - 2026</p>
-                  <p className="text-xl font-bold text-white mb-2 italic">GRAN Faculdade</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
+                  <p className="text-xl font-bold text-white mb-2 italic">FOCUS Faculdade</p>
                   <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
                 </div>
               </div>
@@ -250,7 +253,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
           <h2 className="text-black text-4xl md:text-6xl font-black mb-8 tracking-tighter">Vamos construir algo inteligente?</h2>
           <p className="text-black/60 text-lg md:text-2xl font-bold mb-12 max-w-2xl mx-auto uppercase tracking-wider leading-relaxed">Estou pronto para o próximo desafio técnico de alto impacto.</p>
           <a 
-            href="mailto:contato@waldoeller.com.br"
+            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-black text-white font-black px-16 py-6 rounded-2xl text-sm md:text-base uppercase tracking-[0.3em] hover:bg-[#1A1A1C] transition-all transform hover:-translate-y-1"
           >
             Entrar em Contato Agora
