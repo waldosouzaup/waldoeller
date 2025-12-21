@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Contact: React.FC = () => {
-  const whatsappNumber = "5561999999999"; // Substitua pelo número real se necessário
+  const whatsappNumber = "5561991161854";
   const whatsappMessage = encodeURIComponent("Olá Waldo, vi seu portfólio e gostaria de conversar sobre um projeto.");
 
   return (
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full bg-accent text-black font-black uppercase tracking-[0.3em] py-7 rounded-2xl hover:bg-white transition-all transform hover:scale-[1.02] shadow-2xl shadow-accent/30 text-[11px] flex items-center justify-center gap-4"
             >
-              Chamar no WhatsApp
+              WhatsApp: (61) 99116-1854
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </a>
             
