@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
           <div>
             <h2 className="text-5xl md:text-7xl font-black mb-10">Contato</h2>
             <p className="text-2xl text-white/80 mb-8 leading-relaxed font-light">
-              Disponível para oportunidades na área de dados e desenvolvimento full stack.
+              Busco ativamente oportunidades como Analista de Dados ou estágio na área de Engenharia de Dados.
             </p>
             <p className="text-white/40 mb-16 max-w-md leading-relaxed">
               Trabalho na intersecção entre tecnologia e inteligência de negócios. Se você busca soluções escaláveis e orientadas a resultados, vamos conversar.
