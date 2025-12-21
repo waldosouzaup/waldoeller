@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>(STATIC_PROJECTS);
   const [session, setSession] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {

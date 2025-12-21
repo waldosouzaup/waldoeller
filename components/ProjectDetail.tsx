@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Project } from '../types';
 
@@ -50,7 +49,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-6">{project.title}</h1>
             <div className="flex flex-wrap gap-3">
               {project.technologies.map(tech => (
-                <span key={tech} className="bg-accent/10 text-accent text-[9px] font-black uppercase px-4 py-1.5 rounded-lg border border-accent/20">{tech}</span>
+                <span key={tech} className="bg-accent/10 text-accent text-[9.36px] font-black uppercase px-4 py-1.5 rounded-lg border border-accent/20">{tech}</span>
               ))}
             </div>
           </div>
