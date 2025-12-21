@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Project, ProjectCategory } from '../types';
 
@@ -21,7 +20,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">Projetos</h2>
-          <p className="text-accent uppercase tracking-[0.3em] font-black text-[10px]">Resultados práticos e aplicados</p>
+          <p className="text-accent uppercase tracking-[0.3em] font-black text-[10.4px]">Resultados práticos e aplicados</p>
         </div>
 
         {/* Filters */}
@@ -30,7 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-10 py-3 rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 ${filter === cat ? 'bg-accent text-black shadow-lg shadow-accent/20' : 'bg-[#141416] border border-white/5 text-white/40 hover:text-white hover:border-white/20'}`}
+              className={`px-10 py-3 rounded-full font-black text-[10.4px] uppercase tracking-[0.2em] transition-all duration-300 ${filter === cat ? 'bg-accent text-black shadow-lg shadow-accent/20' : 'bg-[#141416] border border-white/5 text-white/40 hover:text-white hover:border-white/20'}`}
             >
               {cat}
             </button>
@@ -50,7 +49,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
                 />
-                <div className="absolute top-6 right-6 bg-accent text-black text-[9px] font-black uppercase px-4 py-1.5 rounded-full shadow-xl">
+                <div className="absolute top-6 right-6 bg-accent text-black text-[9.36px] font-black uppercase px-4 py-1.5 rounded-full shadow-xl">
                   {project.category}
                 </div>
               </div>
@@ -68,7 +67,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span 
                         key={tech} 
-                        className="text-[10px] font-black uppercase tracking-widest bg-white/[0.03] border border-white/5 px-4 py-2 rounded-xl text-white/30 group-hover:text-white/50 transition-colors"
+                        className="text-[10.4px] font-black uppercase tracking-widest bg-white/[0.03] border border-white/5 px-4 py-2 rounded-xl text-white/30 group-hover:text-white/50 transition-colors"
                       >
                         {tech}
                       </span>
