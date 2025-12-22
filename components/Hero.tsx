@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-20">
         <div className="order-2 md:order-1">
-          <p className="text-accent font-black tracking-[0.5em] uppercase mb-4 animate-fade-in text-[10px]">Data & Tech Specialist</p>
+          <p className="text-accent font-black tracking-[0.5em] uppercase mb-4 animate-fade-in text-[10px]">Olá, seja bem vindo(a)!</p>
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight text-white tracking-tighter">
             Waldo <span className="text-accent">Eller</span>
           </h1>
@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
            Especialista em <span className="font-bold text-white">Data Analytics</span>
           </h2>
           <p className="text-[18.72px] text-white/40 mb-12 max-w-xl leading-relaxed font-light">
-            Transformando dados complexos em decisões estratégicas através de tecnologia de ponta e arquiteturas web escaláveis.
+           Nessa página eu demonstro habilidades de resolver problemas de negócio utilizando conceitos e ferramentas da Ciência de Dados através de projetos com dados públicos.
           </p>
           <div className="flex flex-wrap gap-6">
             <a 

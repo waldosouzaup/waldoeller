@@ -95,7 +95,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
                   <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Sistemas de Informação</h4>
                   <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2011 - 2014</p>
                   <p className="text-xl font-bold text-white mb-2 italic">UNIP, Belo Horizonte, MG</p>
-                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: banco de dados, redes de computadores, segurança da informação e gestão de projetos de TI.</p>
+                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Banco de Dados, Redes de Computadores, Segurança da Informação e Gestão de Projetos de TI.</p>
                 </div>
                 {/* Item 2 */}
                 <div className="relative">
@@ -112,7 +112,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
 </h4>
                   <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
                   <p className="text-xl font-bold text-white mb-2 italic">GRAN Faculdade</p>
-                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
+                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Modelagem de Banco de Dados, Business Intelligence, Integração de Dados e Data Lake, Probabilidade e Inferência para Ciência de Dados.</p>
                 </div>
                  <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
@@ -121,7 +121,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
 </h4>
                   <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
                   <p className="text-xl font-bold text-white mb-2 italic">GRAN Faculdade</p>
-                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
+                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Fundamentos de Segurança da Informação, Gestão de Segurança da Informação e Normas 27001 - 27002 e 27005, 
+Forense Computacional, 
+Redes de Computadores, 
+Segurança da Infraestrutura de TI
+.</p>
                 </div>
                  <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
@@ -129,7 +133,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack }) => {
 </h4>
                   <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026</p>
                   <p className="text-xl font-bold text-white mb-2 italic">FOCUS Faculdade</p>
-                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Algoritmos de Machine Learning, Bancos de Dados, Sistemas Operacionais Avançados, Computação em Nuvem, Processamento de Big Data.</p>
+                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">Disciplinas: Engenharia de Dados, Big Data Ciência de Dados, Inteligência Artificial, Mineração de Dados, Computação em Nuvem, Python, Governança de Dados
+.</p>
                 </div>
               </div>
             </section>

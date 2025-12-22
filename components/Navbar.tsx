@@ -31,6 +31,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     setMobileMenuOpen(false);
   };
 
+  const cvLink = "https://drive.google.com/file/d/1-GoMYUi3AXBDD-N5hQF5NWFdWh_yJuny/view?usp=sharing";
+
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-[#0A0A0B]/95 py-4 border-b border-white/5 backdrop-blur-xl shadow-2xl' : 'bg-transparent py-10'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -65,8 +67,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           </ul>
           
           <a 
-            href="/cv-waldo-eller.pdf" 
-            download
+            href={cvLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-accent text-black text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3.5 rounded-xl hover:bg-white transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg shadow-accent/10 flex items-center gap-3"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,8 +105,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           
           <div className="pt-6 border-t border-white/5">
             <a 
-              href="/cv-waldo-eller.pdf" 
-              download
+              href={cvLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full bg-accent text-black text-[11px] font-black uppercase tracking-[0.3em] py-5 rounded-2xl flex items-center justify-center gap-4 active:scale-95 transition-transform"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
