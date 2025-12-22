@@ -205,8 +205,8 @@ Segurança da Infraestrutura de TI
                 <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
                   <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Cientista de Dados Sênior</h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2022 - Present</p>
-                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">Comunidade DS</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">2026 - Present</p>
+                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">XXXXX</p>
                   <ul className="space-y-5 text-xl md:text-2xl text-white/80 font-light leading-relaxed list-disc ml-5">
                     <li>Liderança e mentoria de um time de analistas de dados para executar o roadmap de produtos de dados.</li>
                     <li>Construção de um data warehouse usando os serviços do Google Cloud Platform (GCP).</li>
@@ -220,8 +220,8 @@ Segurança da Infraestrutura de TI
                 <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
                   <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Cientista de Dados Sênior</h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">Março/2020 - Agosto/2022</p>
-                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">Loft Real State Startup</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">Março/2026 - Agosto/2026</p>
+                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">XXXXX</p>
                   <ul className="space-y-5 text-xl md:text-2xl text-white/80 font-light leading-relaxed list-disc ml-5">
                     <li>Desenvolvimento da estratégia de Engenharia de Machine Learning para deploy de modelos em produção.</li>
                     <li>Criação de um projeto para classificar Leads e priorizar a comunicação dos times de marketing e comercial.</li>
@@ -236,8 +236,8 @@ Segurança da Infraestrutura de TI
                 <div className="relative">
                   <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B]"></div>
                   <h4 className="text-2xl font-black uppercase text-accent mb-2 tracking-widest">Cientista de Dados Pleno</h4>
-                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">Novembro/2017 - Março/2022</p>
-                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">Loft Real State Startup</p>
+                  <p className="text-sm font-black text-white/40 mb-3 tracking-widest">Novembro/2026 - Março/2026</p>
+                  <p className="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tight">XXXXX</p>
                   <ul className="space-y-5 text-xl md:text-2xl text-white/80 font-light leading-relaxed list-disc ml-5">
                     <li>Construção de pipeline de dados (camada batch) com AWS, Spark e Airflow.</li>
                     <li>Classificação de imagens de modelos de moda usando CNN com Transfer Learning em Tensorflow e Keras.</li>
