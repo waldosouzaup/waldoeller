@@ -19,7 +19,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
     if (!url) return null;
     return (
       <div className="my-10 rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl bg-[#141416]">
-        <img src={url} className="w-full h-auto object-cover max-h-[500px]" alt="Visual da Seção" />
+        <img src={url} className="w-full h-auto object-cover max-h-[600px]" alt="Visual da Seção" />
       </div>
     );
   };
@@ -34,7 +34,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/5 transition-all">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
               </div>
-              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Voltar</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em]">Voltar</span>
             </button>
             <div className="flex gap-4">
                {project.links.github && (
@@ -85,7 +85,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-2xl font-black text-white mb-8 flex items-center gap-4"><span className="text-accent text-sm">1.</span> Problema de Negócio</h2>
               <div className="prose prose-invert max-w-none">
-                <p className="text-white/60 text-[18.72px] leading-relaxed">{project.businessProblem}</p>
+                <p className="text-white/70 text-[20px] leading-relaxed font-light">{project.businessProblem}</p>
               </div>
               <SectionImage url={project.businessProblemImage} />
             </section>
@@ -93,7 +93,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             {/* 2. Contexto */}
             <section>
               <h2 className="text-2xl font-black text-white mb-8 flex items-center gap-4"><span className="text-accent text-sm">2.</span> Contexto</h2>
-              <p className="text-white/60 text-[16.64px] mb-8 leading-relaxed">{project.context}</p>
+              <p className="text-white/60 text-[18px] mb-8 leading-relaxed font-light">{project.context}</p>
               <SectionImage url={project.contextImage} />
             </section>
 
@@ -103,8 +103,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <ul className="space-y-4 mb-10">
                 {project.premises.map((p, i) => (
                   <li key={i} className="flex gap-4 items-start text-white/50 bg-white/[0.02] p-6 rounded-2xl border border-white/5">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0"></div>
-                    <span className="text-[14.56px] leading-relaxed">{p}</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-accent mt-1.5 shrink-0"></div>
+                    <span className="text-[16px] leading-relaxed">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -118,7 +118,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 {project.strategy.map((step, i) => (
                   <div key={i} className="flex items-center gap-6 p-6 rounded-2xl bg-[#141416] border border-white/5 group hover:border-accent/30 transition-all">
                     <span className="text-2xl font-black text-white/5 group-hover:text-accent/20 transition-colors">0{i+1}</span>
-                    <p className="text-white/70 text-[16.64px] font-bold">{step}</p>
+                    <p className="text-white/80 text-[18px] font-medium">{step}</p>
                   </div>
                 ))}
               </div>
@@ -131,7 +131,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 {project.results.map((res, i) => (
                   <div key={i} className="p-8 rounded-[2rem] border border-white/5 bg-[#0F0F0F] hover:bg-[#141416] transition-all">
-                    <p className="text-white/60 text-[14.56px] leading-relaxed">{res}</p>
+                    <p className="text-white/70 text-[16px] leading-relaxed font-light">{res}</p>
                   </div>
                 ))}
               </div>
@@ -146,8 +146,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <div className="space-y-6">
                   {project.nextSteps.map((step, i) => (
                     <div key={i} className="flex gap-4 items-center group">
-                      <div className="w-2 h-2 bg-accent rounded-full group-hover:scale-150 transition-transform"></div>
-                      <p className="text-white/80 text-[16.64px] font-medium">{step}</p>
+                      <div className="w-2.5 h-2.5 bg-accent rounded-full group-hover:scale-150 transition-transform"></div>
+                      <p className="text-white/90 text-[18px] font-medium">{step}</p>
                     </div>
                   ))}
                 </div>
@@ -163,13 +163,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 </h2>
                 <div className="bg-accent/5 border border-accent/20 rounded-[3rem] p-12 text-center group hover:bg-accent/10 transition-all duration-500 relative overflow-hidden">
                   <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 blur-3xl rounded-full"></div>
-                  <p className="text-white/50 mb-10 uppercase tracking-[0.2em] font-black text-xs">Explore o portfólio completo e os resultados dinâmicos deste projeto</p>
+                  <p className="text-white/60 mb-10 uppercase tracking-[0.2em] font-black text-sm">Explore o portfólio completo e os resultados dinâmicos deste projeto</p>
                   
                   <a 
                     href={project.links.demo} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-6 bg-accent text-black font-black py-6 px-16 rounded-2xl hover:bg-white transition-all transform hover:scale-105 shadow-2xl shadow-accent/20 uppercase tracking-[0.3em] text-[11px]"
+                    className="inline-flex items-center gap-6 bg-accent text-black font-black py-6 px-16 rounded-2xl hover:bg-white transition-all transform hover:scale-105 shadow-2xl shadow-accent/20 uppercase tracking-[0.3em] text-[12px]"
                   >
                     Acessar Projeto Externo
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -182,7 +182,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           </div>
 
           <div className="mt-32 pt-16 border-t border-white/5 text-center">
-             <button onClick={onBack} className="bg-white text-black font-black py-5 px-16 rounded-2xl hover:bg-accent transition-all uppercase tracking-[0.2em] text-[10px]">Concluir Leitura do Case</button>
+             <button onClick={onBack} className="bg-white text-black font-black py-5 px-16 rounded-2xl hover:bg-accent transition-all uppercase tracking-[0.2em] text-[11px]">Concluir Leitura do Case</button>
           </div>
         </div>
       </div>
