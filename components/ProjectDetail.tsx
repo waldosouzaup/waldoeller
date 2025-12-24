@@ -8,23 +8,62 @@ interface ProjectDetailProps {
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   const [activeImage, setActiveImage] = useState(project.imageUrl);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const allImages = [project.imageUrl, ...(project.galleryImages || [])].filter(Boolean);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Bloqueia o scroll quando o lightbox está aberto
+  useEffect(() => {
+    if (lightboxImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [lightboxImage]);
+
   const SectionImage = ({ url }: { url?: string }) => {
     if (!url) return null;
     return (
-      <div className="my-16 rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl bg-[#141416] group">
+      <div 
+        className="my-16 rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl bg-[#141416] group cursor-zoom-in"
+        onClick={() => setLightboxImage(url)}
+      >
         <img src={url} className="w-full h-auto object-cover max-h-[700px] transition-transform duration-1000 group-hover:scale-[1.02]" alt="Visual do Case" />
       </div>
     );
   };
 
+  // Classe padrão para o texto descritivo das seções - Aumentado em 7% (19px * 1.07 = 20.33px)
+  const bodyTextClass = "antialiased text-white/70 text-[20.33px] leading-[1.8] font-light max-w-2xl";
+
   return (
-    <section className="py-24 md:py-32 bg-[#0A0A0B] min-h-screen">
+    <section className="py-24 md:py-32 bg-[#0A0A0B] min-h-screen relative">
+      {/* Lightbox Overlay */}
+      {lightboxImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm animate-fade-in p-4 md:p-10 cursor-zoom-out"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button 
+            className="absolute top-8 right-8 text-white/50 hover:text-white transition-all p-4"
+            onClick={(e) => { e.stopPropagation(); setLightboxImage(null); }}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <img 
+            src={lightboxImage} 
+            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-scale-up" 
+            alt="Lightbox view" 
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           {/* Header de Navegação */}
@@ -55,9 +94,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
           <section className="mb-32">
             <div className="bg-[#141416] p-6 rounded-[3rem] border border-white/5 shadow-3xl">
-              <div className="relative aspect-video rounded-[2rem] overflow-hidden mb-6 group">
+              <div 
+                className="relative aspect-video rounded-[2rem] overflow-hidden mb-6 group cursor-zoom-in"
+                onClick={() => setLightboxImage(activeImage)}
+              >
                 <img src={activeImage} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" alt="Showcase" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <div className="bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">Clique para ampliar</div>
+                </div>
               </div>
               {allImages.length > 1 && (
                 <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar px-2">
@@ -79,7 +123,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 Problema de Negócio
               </h2>
               <div className="prose prose-invert max-w-none">
-                <p className="text-white/70 text-[20px] leading-[1.8] font-light text-balance">{project.businessProblem}</p>
+                <p className={bodyTextClass}>{project.businessProblem}</p>
               </div>
               <SectionImage url={project.businessProblemImage} />
             </section>
@@ -89,7 +133,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">02</span>
                 Contexto da Solução
               </h2>
-              <p className="text-white/60 text-[18px] mb-8 leading-[1.8] font-light">{project.context}</p>
+              <p className={bodyTextClass}>{project.context}</p>
               <SectionImage url={project.contextImage} />
             </section>
 
@@ -98,14 +142,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">03</span>
                 Premissas Técnicas
               </h2>
-              <ul className="space-y-6">
-                {project.premises.map((p, i) => (
-                  <li key={i} className="flex gap-6 items-start text-white/50 bg-[#141416] p-8 rounded-[2rem] border border-white/5 hover:border-accent/20 transition-all">
-                    <div className="w-3 h-3 rounded-full bg-accent mt-2 shrink-0 shadow-lg shadow-accent/40"></div>
-                    <span className="text-[18px] leading-[1.7] font-light">{p}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-w-2xl">
+                <ul className="space-y-6">
+                  {project.premises.map((p, i) => (
+                    <li key={i} className="flex gap-6 items-start text-white/50 bg-[#141416] p-8 rounded-[2rem] border border-white/5 hover:border-accent/20 transition-all">
+                      <div className="w-3 h-3 rounded-full bg-accent mt-2 shrink-0 shadow-lg shadow-accent/40"></div>
+                      <span className="text-[18px] leading-[1.7] font-light">{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <SectionImage url={project.premisesImage} />
             </section>
 
@@ -114,7 +160,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">04</span>
                 Estratégia de Implementação
               </h2>
-              <div className="space-y-4">
+              <div className="max-w-2xl space-y-4">
                 {project.strategy.map((step, i) => (
                   <div key={i} className="flex items-center gap-8 p-8 rounded-[2rem] bg-[#141416] border border-white/5 group hover:bg-accent/5 transition-all">
                     <span className="text-3xl font-black text-white/5 group-hover:text-accent/20">0{i+1}</span>
@@ -172,6 +218,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes scale-up {
+          from { transform: scale(0.9); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-scale-up {
+          animation: scale-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
+        }
+      `}</style>
     </section>
   );
 };
