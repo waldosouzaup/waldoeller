@@ -193,7 +193,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
                       <select value={editingProject.category} onChange={(e) => setEditingProject({...editingProject, category: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium appearance-none">
                         <option value="Dados">Dados</option>
                         <option value="Web">Web</option>
-                        <option value="Outros">Outros</option>
+                        <option value="IA">IA</option>
                       </select>
                     </div>
                     <div>

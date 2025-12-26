@@ -3,7 +3,7 @@ export enum ProjectCategory {
   ALL = 'Todos',
   DATA = 'Dados',
   WEB = 'Web',
-  OTHER = 'Outros'
+  OTHER = 'IA'
 }
 
 export interface Project {

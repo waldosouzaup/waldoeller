@@ -40,14 +40,18 @@ const About: React.FC = () => {
                  Waldo Eller é um especialista que une performance técnica e inteligência analítica. Com sólida experiência em Data Science e Engenharia de Software, atua na vanguarda de soluções orientadas a resultados e eficiência operacional.
               </p>
 
-              <div className="grid grid-cols-2 gap-10 pt-16 border-t border-white/10">
+              <div className="pt-16 border-t border-white/10">
                 <div className="flex flex-col">
-                  <span className="text-accent text-[11px] uppercase tracking-[0.4em] font-black mb-3">Localização</span>
-                  <span className="text-2xl font-bold text-white">Brasília, DF</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-accent text-[11px] uppercase tracking-[0.4em] font-black mb-3">Status</span>
-                  <span className="text-2xl font-bold text-white">Disponível</span>
+                  <span className="text-accent text-[11px] uppercase tracking-[0.5em] font-black mb-4 flex items-center gap-3">
+                    STATUS
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                  </span>
+                  <div className="bg-white/[0.03] border border-white/10 px-8 py-4 rounded-2xl w-fit group hover:bg-accent/10 hover:border-accent/40 transition-all duration-500 shadow-2xl backdrop-blur-sm">
+                    <span className="text-xl md:text-2xl font-black text-white tracking-tighter group-hover:text-accent transition-colors">Disponível</span>
+                  </div>
                 </div>
               </div>
             </div>
