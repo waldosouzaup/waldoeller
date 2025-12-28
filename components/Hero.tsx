@@ -1,12 +1,16 @@
+
 import React from 'react';
+import { translations } from '../translations';
 
 interface HeroProps {
   onNavigate?: (id: string) => void;
+  lang: 'pt' | 'en';
 }
 
-const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+const Hero: React.FC<HeroProps> = ({ onNavigate, lang }) => {
   const profileImageUrl = "https://pmartinsimob.com.br/wp-content/uploads/2025/12/waldo-terno-preto_baixa.png?auto=format&fit=crop&q=80&w=800";
   const analyticsBgUrl = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600";
+  const t = translations[lang].hero;
 
   const handleLinkClick = (e: React.MouseEvent, id: string) => {
     if (onNavigate) {
@@ -31,15 +35,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-20">
         <div className="order-2 lg:order-1">
-          <p className="text-accent font-black tracking-[0.4em] uppercase mb-6 text-[12px]">Olá, seja bem vindo(a)!</p>
+          <p className="text-accent font-black tracking-[0.4em] uppercase mb-6 text-[12px]">{t.welcome}</p>
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight text-white tracking-tighter text-balance">
             Waldo <span className="text-accent">Eller</span>
           </h1>
           <h2 className="text-2xl md:text-4xl font-light mb-10 text-white/80">
-           Especialista em <span className="font-bold text-white">Data Analytics</span>
+           {t.specialist} <span className="font-bold text-white">Data Analytics</span>
           </h2>
           <p className="text-lg md:text-xl text-white/50 mb-12 max-w-xl leading-relaxed font-light">
-           Transformando complexidade técnica em decisões estratégicas através de projetos analíticos de alto impacto.
+           {t.description}
           </p>
           <div className="flex flex-wrap gap-6">
             <a 
@@ -47,14 +51,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               onClick={(e) => handleLinkClick(e, 'projetos')}
               className="bg-accent text-black font-black py-5 px-14 rounded-2xl hover:bg-white transition-all transform hover:-translate-y-1 inline-block uppercase tracking-[0.2em] text-[12px] shadow-2xl shadow-accent/20"
             >
-              Explorar Portfólio
+              {t.explore}
             </a>
             <a 
               href="#contato" 
               onClick={(e) => handleLinkClick(e, 'contato')}
               className="border border-white/10 bg-white/5 text-white font-black py-5 px-14 rounded-2xl hover:border-accent hover:text-accent transition-all transform hover:-translate-y-1 inline-block uppercase tracking-[0.2em] text-[12px] backdrop-blur-md"
             >
-              Fale Comigo
+              {t.contact}
             </a>
           </div>
         </div>
@@ -76,8 +80,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   +5
                 </div>
                 <div>
-                   <p className="text-xs font-black uppercase tracking-widest text-accent mb-1">Anos de</p>
-                   <p className="text-white font-bold text-lg">Experiência</p>
+                   <p className="text-xs font-black uppercase tracking-widest text-accent mb-1">{t.years}</p>
+                   <p className="text-white font-bold text-lg">{t.experience}</p>
                 </div>
              </div>
           </div>

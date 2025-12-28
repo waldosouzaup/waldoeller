@@ -1,21 +1,31 @@
 
 import React from 'react';
+import { translations } from '../translations';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  lang: 'pt' | 'en';
+}
+
+const Contact: React.FC<ContactProps> = ({ lang }) => {
   const whatsappNumber = "5561991161854";
-  const whatsappMessage = encodeURIComponent("Olá Waldo, vi seu portfólio e gostaria de conversar sobre um projeto.");
+  const whatsappMessage = encodeURIComponent(
+    lang === 'pt' 
+      ? "Olá Waldo, vi seu portfólio e gostaria de conversar sobre um projeto." 
+      : "Hi Waldo, I saw your portfolio and would like to talk about a project."
+  );
+  const t = translations[lang].contact;
 
   return (
     <section id="contato" className="py-32 bg-[#0F0F0F] scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div>
-            <h2 className="text-5xl md:text-7xl font-black mb-10">Contato</h2>
+            <h2 className="text-5xl md:text-7xl font-black mb-10">{t.title}</h2>
             <p className="text-2xl text-white/80 mb-8 leading-relaxed font-light">
-              Busco ativamente oportunidades como Analista de Dados ou estágio na área de Engenharia de Dados.
+              {t.description1}
             </p>
             <p className="text-white/40 mb-16 max-w-md leading-relaxed">
-              Trabalho na intersecção entre tecnologia e inteligência de negócios. Se você busca soluções escaláveis e orientadas a resultados, vamos conversar.
+              {t.description2}
             </p>
             
             <div className="space-y-8">
@@ -63,9 +73,9 @@ const Contact: React.FC = () => {
                </svg>
             </div>
 
-            <h3 className="text-3xl font-black text-white mb-6 tracking-tighter uppercase">Resposta Rápida</h3>
+            <h3 className="text-3xl font-black text-white mb-6 tracking-tighter uppercase">{t.quickResponse}</h3>
             <p className="text-white/40 mb-12 text-lg font-light leading-relaxed">
-              Precisa de uma resposta imediata? Inicie uma conversa diretamente pelo WhatsApp.
+              {t.whatsappText}
             </p>
 
             <a 
@@ -79,7 +89,7 @@ const Contact: React.FC = () => {
             </a>
             
             <p className="mt-8 text-[9px] font-black uppercase tracking-[0.4em] text-white/10">
-              Disponibilidade: Seg — Sex, 09h às 18h
+              {t.availability}
             </p>
           </div>
         </div>

@@ -68,11 +68,11 @@ export const PROJECTS: Project[] = [
 export const TECH_GROUPS: TechCategory[] = [
   {
     title: 'Uso frequente',
-    items: ['Python', 'SQL Server', 'React', 'TypeScript', 'Power BI', 'Node.js']
+    items: ['Excel', 'SQL', 'Python', 'Power BI', 'Lovable', 'Google Studio', 'ETL']
   },
   {
     title: 'Uso intermediário',
-    items: ['AWS Cloud', 'Docker', 'Next.js', 'PostgreSQL', 'DAX', 'Tailwind CSS']
+    items: ['UI e UX', 'IA', 'DAX', 'DOCKER', 'POWER APPS']
   },
   {
     title: 'Estudando',

@@ -1,12 +1,16 @@
+
 import React, { useEffect, useState } from 'react';
 import { Project } from '../types';
+import { translations } from '../translations';
 
+// Updated interface to include lang property as required by App.tsx
 interface ProjectDetailProps {
   project: Project;
   onBack: () => void;
+  lang: 'pt' | 'en';
 }
 
-const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
+const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack, lang }) => {
   const [activeImage, setActiveImage] = useState(project.imageUrl);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const allImages = [project.imageUrl, ...(project.galleryImages || [])].filter(Boolean);
@@ -72,7 +76,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/5 transition-all">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
               </div>
-              <span className="text-[12px] font-black uppercase tracking-[0.25em]">Voltar aos Projetos</span>
+              <span className="text-[12px] font-black uppercase tracking-[0.25em]">
+                {lang === 'pt' ? 'Voltar aos Projetos' : 'Back to Projects'}
+              </span>
             </button>
             <div className="flex gap-4">
                {project.links.github && (
@@ -100,7 +106,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               >
                 <img src={activeImage} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" alt="Showcase" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                   <div className="bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">Clique para ampliar</div>
+                   <div className="bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">
+                    {lang === 'pt' ? 'Clique para ampliar' : 'Click to enlarge'}
+                   </div>
                 </div>
               </div>
               {allImages.length > 1 && (
@@ -120,7 +128,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">01</span>
-                Problema de Negócio
+                {lang === 'pt' ? 'Problema de Negócio' : 'Business Problem'}
               </h2>
               <div className="prose prose-invert max-w-none">
                 <p className={bodyTextClass}>{project.businessProblem}</p>
@@ -131,7 +139,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">02</span>
-                Contexto da Solução
+                {lang === 'pt' ? 'Contexto da Solução' : 'Solution Context'}
               </h2>
               <p className={bodyTextClass}>{project.context}</p>
               <SectionImage url={project.contextImage} />
@@ -140,7 +148,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">03</span>
-                Premissas Técnicas
+                {lang === 'pt' ? 'Premissas Técnicas' : 'Technical Premises'}
               </h2>
               <div className="max-w-2xl">
                 <ul className="space-y-6">
@@ -158,7 +166,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">04</span>
-                Estratégia de Implementação
+                {lang === 'pt' ? 'Estratégia de Implementação' : 'Implementation Strategy'}
               </h2>
               <div className="max-w-2xl space-y-4">
                 {project.strategy.map((step, i) => (
@@ -174,7 +182,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <section>
               <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
                 <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">05</span>
-                Resultados Obtidos
+                {lang === 'pt' ? 'Resultados Obtidos' : 'Obtained Results'}
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {project.results.map((res, i) => (
@@ -187,15 +195,38 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <SectionImage url={project.resultsImage} />
             </section>
 
+            {/* SEÇÃO 06: PRÓXIMOS PASSOS */}
+            {project.nextSteps && project.nextSteps.length > 0 && (
+              <section>
+                <h2 className="text-3xl font-black text-white mb-10 flex items-center gap-6">
+                  <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">06</span>
+                  {lang === 'pt' ? 'Próximos Passos' : 'Next Steps'}
+                </h2>
+                <div className="max-w-2xl">
+                  <ul className="space-y-6">
+                    {project.nextSteps.map((step, i) => (
+                      <li key={i} className="flex gap-6 items-start text-white/50 bg-[#141416] p-8 rounded-[2rem] border border-white/5 hover:border-accent/20 transition-all">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent mt-3 shrink-0 shadow-lg shadow-accent/40"></div>
+                        <span className="text-[18px] leading-[1.7] font-light">{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <SectionImage url={project.nextStepsImage} />
+              </section>
+            )}
+
             {project.links.demo && (
               <section className="pt-16 border-t border-white/5">
                 <h2 className="text-3xl font-black text-white mb-12 flex items-center gap-6">
-                  <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">06</span>
-                  Acesso ao Projeto
+                  <span className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-lg">07</span>
+                  {lang === 'pt' ? 'Acesso ao Projeto' : 'Project Access'}
                 </h2>
                 <div className="bg-accent/5 border border-accent/20 rounded-[3.5rem] p-16 text-center group relative overflow-hidden">
                   <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/10 blur-[100px] rounded-full"></div>
-                  <p className="text-white/50 mb-12 uppercase tracking-[0.3em] font-black text-[12px]">Explore a solução completa e os Dashboards dinâmicos</p>
+                  <p className="text-white/50 mb-12 uppercase tracking-[0.3em] font-black text-[12px]">
+                    {lang === 'pt' ? 'Explore a solução completa e os Dashboards dinâmicos' : 'Explore the complete solution and dynamic Dashboards'}
+                  </p>
                   
                   <a 
                     href={project.links.demo} 
@@ -203,7 +234,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     rel="noopener noreferrer" 
                     className="inline-flex items-center gap-8 bg-accent text-black font-black py-7 px-20 rounded-2xl hover:bg-white transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 uppercase tracking-[0.4em] text-[13px]"
                   >
-                    Acessar Projeto Externo
+                    {lang === 'pt' ? 'Acessar Projeto Externo' : 'Access External Project'}
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -214,7 +245,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           </div>
 
           <div className="mt-40 pt-20 border-t border-white/5 text-center">
-             <button onClick={onBack} className="bg-white text-black font-black py-6 px-20 rounded-2xl hover:bg-accent transition-all uppercase tracking-[0.3em] text-[12px] shadow-2xl">Finalizar Leitura do Case</button>
+             <button onClick={onBack} className="bg-white text-black font-black py-6 px-20 rounded-2xl hover:bg-accent transition-all uppercase tracking-[0.3em] text-[12px] shadow-2xl">
+              {lang === 'pt' ? 'Finalizar Leitura do Case' : 'Finish Case Reading'}
+             </button>
           </div>
         </div>
       </div>

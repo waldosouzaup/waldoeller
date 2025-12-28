@@ -73,10 +73,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
     setLoading(true);
     
     const isNew = !editingProject.id;
-    // Remove campos que não devem ser enviados ao banco diretamente (como metadados de sistema)
     const { id, created_at, ...rawPayload } = editingProject;
 
-    // Garante que arrays vazios ou nulos sejam tratados corretamente
     const payload = {
       ...rawPayload,
       technologies: Array.isArray(rawPayload.technologies) ? rawPayload.technologies : [],
@@ -103,8 +101,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
     }
 
     if (error) {
-      if (error.message.includes('column')) {
-        alert("ERRO DE BANCO: Algumas colunas (como business_problem_image) ainda não existem na sua tabela 'projects'. Por favor, execute o SQL de atualização no Dashboard do Supabase conforme as instruções.");
+      if (error.message.includes('projects_category_check')) {
+        alert("ERRO DE BANCO: O valor 'IA' não é permitido pela regra de validação do Supabase.\n\nSOLUÇÃO:\nNo SQL Editor do Supabase, execute:\nALTER TABLE projects DROP CONSTRAINT projects_category_check;\nALTER TABLE projects ADD CONSTRAINT projects_category_check CHECK (category IN ('Dados', 'Web', 'IA'));");
+      } else if (error.message.includes('column')) {
+        alert("ERRO DE ESTRUTURA: Algumas colunas novas ainda não existem na sua tabela. Verifique seu esquema no Supabase.");
       } else {
         alert("Erro ao salvar: " + error.message);
       }
@@ -116,7 +116,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
     setLoading(false);
   };
 
-  // Implement delete function for Supabase projects
   const deleteProject = async (id: string) => {
     if (window.confirm("Tem certeza que deseja excluir este projeto? Esta ação é irreversível.")) {
       const { error } = await supabase
@@ -179,7 +178,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
             </h2>
             
             <form onSubmit={handleSave} className="space-y-16">
-              {/* Metadados e Mídia Geral */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div className="space-y-8">
                   <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em]">01. Metadados do Card</h3>
@@ -220,85 +218,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
                       onChange={(e) => handleArrayChange('gallery_images', e.target.value)} 
                       rows={4} 
                       className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-xs font-mono" 
-                      placeholder="https://imagem1.jpg&#10;https://imagem2.jpg"
                     />
                   </div>
                   <div>
                     <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Tags/Tecnologias (Uma por linha)</label>
                     <textarea value={editingProject.technologies?.join('\n')} onChange={(e) => handleArrayChange('technologies', e.target.value)} rows={3} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-xs font-mono" />
                   </div>
-                </div>
-              </div>
-
-              {/* Seções Detalhadas */}
-              <div className="pt-16 border-t border-white/5">
-                <h3 className="text-[11px] font-black uppercase text-accent mb-12 tracking-[0.2em]">03. Narrativa Estratégica & Imagens de Seção</h3>
-                
-                <div className="space-y-16">
-                  {/* Seção 1 */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="space-y-4">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">1. Problema de Negócio (Texto)</label>
-                      <textarea value={editingProject.business_problem} onChange={(e) => setEditingProject({...editingProject, business_problem: e.target.value})} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                    <div className="space-y-4">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem do Problema (URL)</label>
-                      <input type="text" value={editingProject.business_problem_image || ''} onChange={(e) => setEditingProject({...editingProject, business_problem_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" placeholder="URL da imagem para esta seção..." />
-                      {editingProject.business_problem_image && <img src={editingProject.business_problem_image} className="h-20 w-auto rounded-lg object-cover opacity-30 grayscale" />}
-                    </div>
-                  </div>
-
-                  {/* Seção 2 */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="space-y-4">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">2. Contexto da Solução (Texto)</label>
-                      <textarea value={editingProject.context} onChange={(e) => setEditingProject({...editingProject, context: e.target.value})} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                    <div className="space-y-4">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem do Contexto (URL)</label>
-                      <input type="text" value={editingProject.context_image || ''} onChange={(e) => setEditingProject({...editingProject, context_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                  </div>
-
-                  {/* Arrays de Listas com Imagens */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="space-y-6">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">3. Premissas (Uma por linha)</label>
-                      <textarea value={editingProject.premises?.join('\n')} onChange={(e) => handleArrayChange('premises', e.target.value)} rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white font-mono text-xs" />
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem das Premissas (URL)</label>
-                      <input type="text" value={editingProject.premises_image || ''} onChange={(e) => setEditingProject({...editingProject, premises_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                    <div className="space-y-6">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">4. Estratégia (Uma por linha)</label>
-                      <textarea value={editingProject.strategy?.join('\n')} onChange={(e) => handleArrayChange('strategy', e.target.value)} rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white font-mono text-xs" />
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem da Estratégia (URL)</label>
-                      <input type="text" value={editingProject.strategy_image || ''} onChange={(e) => setEditingProject({...editingProject, strategy_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="space-y-6">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">6. Resultados (Uma por linha)</label>
-                      <textarea value={editingProject.results?.join('\n')} onChange={(e) => handleArrayChange('results', e.target.value)} rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white font-mono text-xs" />
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem dos Resultados (URL)</label>
-                      <input type="text" value={editingProject.results_image || ''} onChange={(e) => setEditingProject({...editingProject, results_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                    <div className="space-y-6">
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">7. Próximos Passos (Uma por linha)</label>
-                      <textarea value={editingProject.next_steps?.join('\n')} onChange={(e) => handleArrayChange('next_steps', e.target.value)} rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-6 focus:border-accent outline-none text-white font-mono text-xs" />
-                      <label className="block text-[9px] uppercase font-black text-white/20 tracking-widest">Imagem Próximos Passos (URL)</label>
-                      <input type="text" value={editingProject.next_steps_image || ''} onChange={(e) => setEditingProject({...editingProject, next_steps_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-sm" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Links Externos */}
-              <div className="pt-16 border-t border-white/5">
-                <h3 className="text-[11px] font-black uppercase text-accent mb-8 tracking-[0.2em]">04. Conexões Externas</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <input type="text" value={editingProject.github_url || ''} onChange={(e) => setEditingProject({...editingProject, github_url: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white" placeholder="GitHub URL..." />
-                  <input type="text" value={editingProject.demo_url || ''} onChange={(e) => setEditingProject({...editingProject, demo_url: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white" placeholder="Live Demo URL..." />
                 </div>
               </div>
 

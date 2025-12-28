@@ -1,37 +1,46 @@
+
 import React, { useState } from 'react';
 import { Project, ProjectCategory } from '../types';
+import { translations } from '../translations';
 
 interface ProjectsProps {
   projects: Project[];
   onSelectProject: (project: Project) => void;
+  lang: 'pt' | 'en';
 }
 
-const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
+const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject, lang }) => {
   const [filter, setFilter] = useState<ProjectCategory>(ProjectCategory.ALL);
+  const t = translations[lang].projects;
 
   const filteredProjects = projects.filter(p => 
     filter === ProjectCategory.ALL || p.category === filter
   );
 
-  const categories = Object.values(ProjectCategory);
+  const categories = [
+    { label: t.categories.all, value: ProjectCategory.ALL },
+    { label: t.categories.data, value: ProjectCategory.DATA },
+    { label: t.categories.web, value: ProjectCategory.WEB },
+    { label: t.categories.ia, value: ProjectCategory.OTHER }
+  ];
 
   return (
     <section id="projetos" className="py-32 bg-[#0F0F0F] scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">Projetos</h2>
-          <p className="text-accent uppercase tracking-[0.3em] font-black text-[10.4px]">Resultados práticos e aplicados</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">{t.title}</h2>
+          <p className="text-accent uppercase tracking-[0.3em] font-black text-[10.4px]">{t.subtitle}</p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-20">
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-10 py-3 rounded-full font-black text-[10.4px] uppercase tracking-[0.2em] transition-all duration-300 ${filter === cat ? 'bg-accent text-black shadow-lg shadow-accent/20' : 'bg-[#141416] border border-white/5 text-white/40 hover:text-white hover:border-white/20'}`}
+              key={cat.value}
+              onClick={() => setFilter(cat.value)}
+              className={`px-10 py-3 rounded-full font-black text-[10.4px] uppercase tracking-[0.2em] transition-all duration-300 ${filter === cat.value ? 'bg-accent text-black shadow-lg shadow-accent/20' : 'bg-[#141416] border border-white/5 text-white/40 hover:text-white hover:border-white/20'}`}
             >
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>
@@ -78,7 +87,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onSelectProject }) => {
                     onClick={() => onSelectProject(project)}
                     className="w-full py-5 bg-accent text-black font-black uppercase tracking-[0.3em] text-[11px] rounded-2xl hover:bg-white transition-all duration-500 shadow-xl shadow-accent/20 hover:scale-[1.02]"
                   >
-                    Ver Detalhes do Projeto
+                    {t.details}
                   </button>
                 </div>
               </div>
