@@ -2,19 +2,10 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# 01. Problema de Negócio
 
-This contains everything you need to run your app locally.
+## 📌 Descrição
 
-View your app in AI Studio: https://ai.studio/apps/drive/1f9znmbuwk4edRUbA94WwX5EyU-Pi04Wd
+Realizar uma análise aprofundada do **perfil dos clientes**.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+O principal resultado esperado é obter **insights acionáveis** que permitam direcionar as próximas campanhas de marketing, focando especificamente no público com **maior probabilidade de adquirir o produto de investimento**.
