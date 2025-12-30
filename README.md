@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://pmartinsimob.com.br/we/we/layout-we.png" />
+<img width="1200" height="475" alt="GHBanner" src="https://pmartinsimob.com.br/we/we/layout-we2.png" />
 </div>
 
 # Problema de Negócio
