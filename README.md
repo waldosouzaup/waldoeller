@@ -21,8 +21,6 @@ Realização de pesquisa de referências de layout de portfólio em diversas pla
 ## 📊 Resultados
 Desenvolvimento de um layout fluido e de carregamento rápido, com total responsividade para computadores e dispositivos móveis. A plataforma também apresenta um painel de administração intuitivo, incorporando as melhores práticas de User Interface (UI) e User Experience (UX).
 
-## 📈 Insights
-
 ## 🛠️ Tecnologias Utilizadas
 ### O projeto foi desenvolvido utilizando as seguintes ferramentas:
 - **Design**: Google Stitch.
