@@ -134,7 +134,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
               </div>
               <div>
                 <h4 className="text-sm font-black uppercase text-white mb-1 tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">{lang === 'pt' ? 'Inglês' : 'English'}</h4>
-                <p className="text-white/30 text-[11px] font-medium leading-tight">Avançado / Técnico</p>
+                <p className="text-white/30 text-[11px] font-medium leading-tight">Técnico</p>
               </div>
             </div>
 
@@ -145,7 +145,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
               </div>
               <div>
                 <h4 className="text-sm font-black uppercase text-white mb-1 tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">{lang === 'pt' ? 'Espanhol' : 'Spanish'}</h4>
-                <p className="text-white/30 text-[11px] font-medium leading-tight">Intermediário</p>
+                <p className="text-white/30 text-[11px] font-medium leading-tight">Básico</p>
               </div>
             </div>
 
@@ -189,15 +189,68 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
               <div className="relative pl-10 space-y-16 border-l border-white/5 ml-4">
                 {[
                   { 
-                    title: "Analista de Dados Pleno", 
-                    date: "2023 - Present", 
-                    company: "Empresa de Inteligência Analítica", 
+                    title: "Consultor Profissional de Digital Marketing", 
+                    date: "2025 - Present", 
+                    company: "Desenvolvimento Freelancer", 
                     tasks: [
-                      "Desenvolvimento de pipelines de dados automatizados para visualização executiva.",
-                      "Análise de churn e lifetime value (LTV) para otimização de campanhas de marketing.",
+                      "Chatbot de Atendimento via WhatsApp com N8n.",
+                      "Desenvolvimento de Website utilizando WordPress e Elementor.",
+                      "Desenvolvimento e aprimoramento de campanhas no Google Ads.",
                       "Criação de dashboards interativos em Power BI e Looker Studio."
                     ]
                   }
+
+                  { 
+                    title: "IT Support Analyst", 
+                    date: "2022 - 2024", 
+                    company: "High Speed Delivery – Worcester/Massachusetts", 
+                    tasks: [
+                      "Gerenciamento da logística de entregas e suporte técnico para motoristas da Amazon.",
+                      "Instalação e configuração do aplicativo de entregas da Amazon em dispositivos móveis.",
+                      "Diagnóstico e resolução de problemas técnicos (login, GPS, sincronização de rotas, conectividade).",
+                       "Treinamento presencial e remoto sobre o uso do aplicativo, incluindo aceitação de rotas, escaneamento de pacotes e relatórios de entrega."
+                    ]
+                  }
+
+                  { 
+                    title: "Assessor Editorial", 
+                    date: "2009 - 2019", 
+                    company: "Editora Edebê Brasil", 
+                    tasks: [
+                      "Responsável pelo suporte de TI: Monitoramento e controle do ambiente de rede.",
+                      "Instalação e configuração de softwares, controle de servidores de arquivos e firewall.",
+                      "Treinamento de novas ferramentas para colaboradores.",
+                      "Desenvolvimento de produtos internos utilizando WordPress + Elementor PRO.",
+                      "Diagramação de páginas de livros didáticos utilizando as ferramentas do pacote Adobe."
+                    ]
+                  }
+
+                  { 
+                    title: "Técnico de TI", 
+                    date: "2008 - 2010", 
+                    company: "Advanta System", 
+                    tasks: [
+                      "Implementação de soluções em redes de dados e voz para BANCO REAL, SANTANDER , ITÁU.",
+                      "Cabeamento estruturado de Voz e Dados.",
+                      "Configuração e Implementação de Sistemas Avaya VOIP." 
+                       "Instalação e configuração de sistemas internos."
+                    ]
+                  }
+
+                  
+
+                  { 
+                    title: "Técnico de TI", 
+                    date: "2005 - 2007", 
+                    company: "LIG  Internet", 
+                    tasks: [
+                      "Configuração e instalação de servidores Linux e Windows para aplicações Web.",
+                      "Cabeamento estruturado de Voz e Dados.",
+                      "Instalação e configuração de servidor Firewall BFW e PfSense." 
+                       
+                    ]
+                  }
+
                 ].map((exp, idx) => (
                   <div className="relative" key={idx}>
                     <div className="absolute -left-[50px] top-1 w-[20px] h-[20px] rounded-full border-4 border-accent bg-[#0A0A0B] shadow-[0_0_15px_rgba(176,141,32,0.2)]"></div>
@@ -325,6 +378,50 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
                 <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
                   Gestão estratégica de ativos de TI
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[#141416] p-10 md:p-12 rounded-[3rem] border border-white/5 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/5 blur-3xl group-hover:bg-accent/10 transition-all"></div>
+              
+              <div className="flex justify-between items-start mb-8 flex-col md:flex-row gap-6">
+                <div>
+                  <h4 className="text-2xl font-black text-white mb-2 leading-tight tracking-tight uppercase">ENAP - Fundamentos de TI, Dados e IA para Gestores de TIC - 170h</h4>
+                  <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">Período: 2025</span>
+                </div>
+                {/* Link para o certificado */}
+                <a 
+                  href="#" 
+                  target="_blank"
+                  className="bg-accent/10 border border-accent/20 text-accent text-[9px] font-black uppercase tracking-widest px-6 py-4 rounded-xl hover:bg-accent hover:text-black transition-all flex items-center gap-3 shrink-0"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  {t.courses.viewCertificate}
+                </a>
+              </div>
+              
+              <p className="text-white/40 mb-8 text-lg md:text-xl font-light">O curso abordou temas essenciais como:</p>
+              <ul className="space-y-4">
+                <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
+                  Fundamentos da Visão Computacional - IA do Azure
+                </li>
+                <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
+                 Visão Geral da IA no Azure
+                </li>
+                <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
+                  Planejamento da Contratação de Soluções de TIC
+                </li>
+                <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
+                  Processamento de Linguagem Natural
+                </li>
+                   <li className="flex gap-5 items-center text-white/60 text-lg md:text-xl font-light group/item transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover/item:opacity-100"></div>
+                 Gestão de projetos
                 </li>
               </ul>
             </div>

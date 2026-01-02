@@ -179,8 +179,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
             
             <form onSubmit={handleSave} className="space-y-16">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                {/* SEÇÃO 01: METADADOS */}
                 <div className="space-y-8">
-                  <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em]">01. Metadados do Card</h3>
+                  <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em] border-b border-white/5 pb-4">01. Metadados do Card</h3>
                   <div>
                     <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Título do Projeto</label>
                     <input type="text" required value={editingProject.title} onChange={(e) => setEditingProject({...editingProject, title: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" />
@@ -205,8 +207,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
                   </div>
                 </div>
 
+                {/* SEÇÃO 02: MÍDIA GERAL */}
                 <div className="space-y-8">
-                  <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em]">02. Mídia Geral</h3>
+                  <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em] border-b border-white/5 pb-4">02. Mídia Geral</h3>
                   <div>
                     <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem de Capa (Principal)</label>
                     <input type="text" value={editingProject.image_url} onChange={(e) => setEditingProject({...editingProject, image_url: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="URL da imagem principal..." />
@@ -224,6 +227,120 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack }) => {
                     <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Tags/Tecnologias (Uma por linha)</label>
                     <textarea value={editingProject.technologies?.join('\n')} onChange={(e) => handleArrayChange('technologies', e.target.value)} rows={3} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white text-xs font-mono" />
                   </div>
+                </div>
+              </div>
+
+              {/* SEÇÃO 03: ESTRUTURA DO CASE STUDY */}
+              <div className="pt-8 border-t border-white/5">
+                <h3 className="text-[11px] font-black uppercase text-accent tracking-[0.2em] mb-12">03. Narrativa Estratégica & Case Study</h3>
+                
+                <div className="grid grid-cols-1 gap-12">
+                  
+                  {/* 01. Problema de Negócio */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">01. Problema de Negócio</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Descrição do Problema</label>
+                        <textarea value={editingProject.business_problem} onChange={(e) => setEditingProject({...editingProject, business_problem: e.target.value})} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem da Seção (URL)</label>
+                        <input type="text" value={editingProject.business_problem_image} onChange={(e) => setEditingProject({...editingProject, business_problem_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 02. Contexto da Solução */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">02. Contexto da Solução</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Contexto Detalhado</label>
+                        <textarea value={editingProject.context} onChange={(e) => setEditingProject({...editingProject, context: e.target.value})} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem da Seção (URL)</label>
+                        <input type="text" value={editingProject.context_image} onChange={(e) => setEditingProject({...editingProject, context_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 03. Premissas Técnicas */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">03. Premissas Técnicas</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Lista de Premissas (Uma por linha)</label>
+                        <textarea value={editingProject.premises?.join('\n')} onChange={(e) => handleArrayChange('premises', e.target.value)} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem da Seção (URL)</label>
+                        <input type="text" value={editingProject.premises_image} onChange={(e) => setEditingProject({...editingProject, premises_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 04. Estratégia de Implementação */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">04. Estratégia de Implementação</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Passos da Estratégia (Uma por linha)</label>
+                        <textarea value={editingProject.strategy?.join('\n')} onChange={(e) => handleArrayChange('strategy', e.target.value)} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem da Seção (URL)</label>
+                        <input type="text" value={editingProject.strategy_image} onChange={(e) => setEditingProject({...editingProject, strategy_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 05. Resultados Obtidos */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">05. Resultados Obtidos</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Lista de Resultados (Uma por linha)</label>
+                        <textarea value={editingProject.results?.join('\n')} onChange={(e) => handleArrayChange('results', e.target.value)} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem da Seção (URL)</label>
+                        <input type="text" value={editingProject.results_image} onChange={(e) => setEditingProject({...editingProject, results_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                   {/* 06. Próximos Passos */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">06. Próximos Passos</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Lista de Passos Futuros (Uma por linha)</label>
+                        <textarea value={editingProject.next_steps?.join('\n')} onChange={(e) => handleArrayChange('next_steps', e.target.value)} rows={5} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium resize-none" />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Imagem Próximos Passos (URL)</label>
+                        <input type="text" value={editingProject.next_steps_image} onChange={(e) => setEditingProject({...editingProject, next_steps_image: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 07. Acesso ao Projeto */}
+                  <div className="bg-[#0A0A0B] p-8 rounded-3xl border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider text-accent/80">07. Acesso e Links</h4>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Link do Projeto (Demo/Acesso Externo)</label>
+                        <input type="text" value={editingProject.demo_url} onChange={(e) => setEditingProject({...editingProject, demo_url: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://..." />
+                      </div>
+                      <div>
+                        <label className="block text-[9px] uppercase font-black text-white/20 mb-4 tracking-widest">Repositório (GitHub)</label>
+                        <input type="text" value={editingProject.github_url} onChange={(e) => setEditingProject({...editingProject, github_url: e.target.value})} className="w-full bg-black/40 border border-white/5 rounded-2xl px-8 py-5 focus:border-accent outline-none text-white font-medium" placeholder="https://github.com/..." />
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 

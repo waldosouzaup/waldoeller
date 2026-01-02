@@ -1,37 +1,20 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://pmartinsimob.com.br/we/we/layout-we2.png" />
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Problema de Negócio
+# Run and deploy your AI Studio app
 
-Desenvolvimento de um modelo de apresentação de **portfólio (template)** para avaliação e aprovação por recrutadores, direcionado a candidatos a vagas nas áreas de Análise de Dados, Ciência de Dados e Engenharia de Dados.
+This contains everything you need to run your app locally.
 
-### Template de Portfolio para Profissionais de Dados
+View your app in AI Studio: https://ai.studio/apps/drive/1f9znmbuwk4edRUbA94WwX5EyU-Pi04Wd
 
+## Run Locally
 
-## 🎯 Objetivo
-Modelo de portfolio para profissionais da área de dados.
-
-## 📂 Base de Dados
-Conexão com o SUPABASE para administração backend dos projetos.
-
-## 🔍 Metodologia
-Realização de pesquisa de referências de layout de portfólio em diversas plataformas de mercado. O desenvolvimento do projeto e a arquitetura da informação foram baseados na estrutura do projeto e no conteúdo disponível.
-
-## 📊 Resultados
-Desenvolvimento de um layout fluido e de carregamento rápido, com total responsividade para computadores e dispositivos móveis. A plataforma também apresenta um painel de administração intuitivo, incorporando as melhores práticas de User Interface (UI) e User Experience (UX).
-
-## 🛠️ Tecnologias Utilizadas
-### O projeto foi desenvolvido utilizando as seguintes ferramentas:
-- **Design**: Google Stitch.
-- **Desenvolvimento**: (Front-end e Back-end): Google AI Studio.
-- **Infraestrutura**: Gerenciamento da Conexão com o Banco de Dados.
+**Prerequisites:**  Node.js
 
 
-## 👤 Autor
-- Waldo Eller
-- LinkedIn: Waldo Eller (https://www.linkedin.com/in/waldoeller)
-- Link Projeto: (https://waeller.netlify.app)
-
-
-
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

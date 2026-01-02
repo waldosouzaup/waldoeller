@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, lang }) => {
             Waldo <span className="text-accent">Eller</span>
           </h1>
           <h2 className="text-2xl md:text-4xl font-light mb-10 text-white/80">
-           {t.specialist} <span className="font-bold text-white">Data Analytics</span>
+           <span className="font-bold text-white">Data Analytics</span>
           </h2>
           <p className="text-lg md:text-xl text-white/50 mb-12 max-w-xl leading-relaxed font-light">
            {t.description}
