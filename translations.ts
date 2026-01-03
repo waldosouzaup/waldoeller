@@ -58,11 +58,11 @@ export const translations = {
     },
     contact: {
       title: 'Contato',
-      description1: 'Busco ativamente oportunidades como Analista de Dados ou estágio na área de Engenharia de Dados.',
+      description1: 'Busco ativamente oportunidades como Analista de Dados ou na área de Engenharia de Dados.',
       description2: 'Trabalho na intersecção entre tecnologia e inteligência de negócios. Se você busca soluções escaláveis e orientadas a resultados, vamos conversar.',
       quickResponse: 'Resposta Rápida',
       whatsappText: 'Precisa de uma resposta imediata? Inicie uma conversa diretamente pelo WhatsApp.',
-      availability: 'Disponibilidade: Seg — Sex, 09h às 18h'
+      availability: 'Disponibilidade: Seg — Sex, 07h às 19h'
     },
     footer: {
       rights: 'TODOS OS DIREITOS RESERVADOS.',
@@ -164,11 +164,11 @@ export const translations = {
     },
     contact: {
       title: 'Contact',
-      description1: 'Actively seeking opportunities as a Data Analyst or Data Engineering internship.',
+      description1: 'Actively seeking opportunities as a Data Analyst or in the Data Engineering field.',
       description2: 'I work at the intersection of technology and business intelligence. If you seek scalable, results-driven solutions, let’s talk.',
       quickResponse: 'Quick Response',
       whatsappText: 'Need an immediate answer? Start a conversation directly via WhatsApp.',
-      availability: 'Availability: Mon — Fri, 9am to 6pm'
+      availability: 'Availability: Mon — Fri, 7am to 7pm'
     },
     footer: {
       rights: 'ALL RIGHTS RESERVED.',

@@ -30,13 +30,13 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
             
             <div className="space-y-8">
               {/* Email */}
-              <a href="mailto:contato@waldoeller.com.br" className="flex items-center gap-8 group w-fit">
+              <a href="mailto:waldoeller@gmail.com" className="flex items-center gap-8 group w-fit">
                 <div className="w-16 h-16 bg-[#141416] border border-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-all duration-300 shadow-xl group-hover:shadow-accent/20">
                    <svg className="w-6 h-6 text-accent group-hover:text-black transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </div>
                 <div>
                   <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black mb-1">Email</p>
-                  <p className="text-xl font-bold group-hover:text-accent transition-colors">contato@waldoeller.com.br</p>
+                  <p className="text-xl font-bold group-hover:text-accent transition-colors">waldoeller@gmail.com</p>
                 </div>
               </a>
 
