@@ -198,7 +198,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
                       "Desenvolvimento e aprimoramento de campanhas no Google Ads.",
                       "Criação de dashboards interativos em Power BI e Looker Studio."
                     ]
-                  }
+                  },
 
                   { 
                     title: "IT Support Analyst", 
@@ -210,7 +210,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
                       "Diagnóstico e resolução de problemas técnicos (login, GPS, sincronização de rotas, conectividade).",
                        "Treinamento presencial e remoto sobre o uso do aplicativo, incluindo aceitação de rotas, escaneamento de pacotes e relatórios de entrega."
                     ]
-                  }
+                  },
 
                   { 
                     title: "Assessor Editorial", 
@@ -223,7 +223,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
                       "Desenvolvimento de produtos internos utilizando WordPress + Elementor PRO.",
                       "Diagramação de páginas de livros didáticos utilizando as ferramentas do pacote Adobe."
                     ]
-                  }
+                  },
 
                   { 
                     title: "Técnico de TI", 
@@ -232,10 +232,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onBack, lang }) => {
                     tasks: [
                       "Implementação de soluções em redes de dados e voz para BANCO REAL, SANTANDER , ITÁU.",
                       "Cabeamento estruturado de Voz e Dados.",
-                      "Configuração e Implementação de Sistemas Avaya VOIP." 
+                      "Configuração e Implementação de Sistemas Avaya VOIP.",
                        "Instalação e configuração de sistemas internos."
                     ]
-                  }
+                  },
 
                   
 
