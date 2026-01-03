@@ -24,7 +24,7 @@ export const translations = {
       mim: 'Mim',
       activeProjects: 'Projetos Ativos',
       quote: '"Transformo complexidade técnica em valor tangível para o negócio através de dados."',
-      description: 'Waldo Eller é um especialista que une performance técnica e inteligência analítica. Com sólida experiência em Data Science e Engenharia de Software, atua na vanguarda de soluções orientadas a resultados e eficiência operacional.',
+      description: 'Waldo Eller é um profissional orientado por dados, com forte capacidade analítica e foco em geração de valor. Atua como Analista de Dados, transformando informações em insights estratégicos, e direciona sua evolução para Engenharia de Dados, com ênfase em pipelines eficientes, qualidade da informação e apoio à tomada de decisão.',
       status: 'STATUS',
       available: 'Disponível'
     },
@@ -130,7 +130,7 @@ export const translations = {
       mim: 'Me',
       activeProjects: 'Active Projects',
       quote: '"I transform technical complexity into tangible business value through data."',
-      description: 'Waldo Eller is an expert combining technical performance and analytical intelligence. With solid experience in Data Science and Software Engineering, he works at the forefront of result-oriented solutions.',
+      description: 'Waldo Eller is a data-driven professional with strong analytical skills and a focus on value generation. He works as a Data Analyst, transforming information into strategic insights, and steers his evolution towards Data Engineering, with an emphasis on efficient pipelines, information quality, and decision-making support.',
       status: 'STATUS',
       available: 'Available'
     },
