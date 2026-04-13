@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://waldoeller.com.br/sitemap.xml
